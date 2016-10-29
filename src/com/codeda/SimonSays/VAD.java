@@ -16,6 +16,7 @@ public class VAD {
 		int ctr=0;
 		int silence=0;
 		int totalSilence=0;
+		int silenceInterval=300;
 		
 		short[] shortArray = new short[nSamples];
 		float[] doubleArray = new float[nSamples];
@@ -65,7 +66,7 @@ public class VAD {
 					ctr++;
 					totalSilence++;
 				} else {
-					if (ctr>300) {
+					if (ctr>silenceInterval) {
 						silence+=ctr;
 					}
 					ctr=0;
